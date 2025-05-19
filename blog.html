@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FurCare Blog</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="topbar-logo center-logo">
+        <img src="images/5.png" alt="FurHerd Logo" />
+      </div>
+      <div class="user-links">
+        <a href="#" onclick="toggleLogin()">Log In</a>
+        <a href="#" onclick="toggleRegister()">Register</a>
+      </div>
+    </div>
+
+    <div class="main-header">
+      <div class="logo"><a href="index.html">Fur<span>Care</span></a></div>
+      <div class="menu-toggle"><button onclick="openNav()">&#9776;</button></div>
+    </div>
+  </header>
+
+  <nav id="sidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a class="active" href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="blog-section">
+      <h2>Our Blog</h2>
+        <div class="blog-intro-box">
+          <h3>Building a Healthier Future for Our Pets</h3>
+          <p>At FurCare, we believe that every pet deserves the best care—from the tiniest puppy to the oldest tabby. Our blog is dedicated to sharing simple, helpful tips and updates to support your pet's well-being every day.</p>
+          <a href="#">Read More</a>
+        </div>
+
+      <div class="blog-grid">
+        
+        <div class="blog-card">
+          <img src="images/price.png" alt="Blog image" style="width:100%; border-radius: 10px 10px 0 0;">
+          <h3>Best Price</h3>
+          <p>We believe pet care should be high-quality and budget-friendly. Discover tips on saving without compromising your pet’s health</p>
+          <a href="#">Read More</a>
+        </div>
+
+        <div class="blog-card">
+          <img src="images/team.png" alt="Blog image" style="width:100%; border-radius: 10px 10px 0 0;">
+          <h3>Team</h3>
+          <p>Meet our passionate vets and caregivers who treat every pet like family. Learn how our team goes the extra mile daily.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+          <img src="images/support.png" alt="Blog image" style="width:100%; border-radius: 10px 10px 0 0;">          
+          <h3>Support</h3>
+          <p>Got questions or concerns? Our support doesn’t stop at the clinic. Explore how FurCare stays connected with you 24/7.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+          <img src="images/services.png" alt="Blog image" style="width:100%; border-radius: 10px 10px 0 0;">
+          <h3>Services</h3>
+          <p>From grooming to emergency care, see how FurCare’s services are tailored to meet every pet’s needs in one place.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+          <img src="images/nutrition.png" alt="Blog image" style="width:100%; border-radius: 10px 10px 0 0;">
+          <h3>Pet Nutrition</h3>
+          <p>Good food means a healthier, happier pet. Learn simple tips for choosing the right meals for your furry friend.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+          <img src="images/tip.png" alt="Blog image" style="width:100%; border-radius: 10px 10px 0 0;">
+          <h3>Wellness Tips</h3>
+          <p>From playtime to paw care, discover easy ways to keep your pet active, stress-free, and thriving every day.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+<div id="loginDropdown" class="dropdown-form">
+  <form id="loginForm">
+    <h3>Welcome Back</h3>
+    
+    <div class="form-group">
+      <label for="loginUser">Username or Email</label>
+      <input type="text" id="loginUser" placeholder="Enter your username or email" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="loginPass">Password</label>
+      <input type="password" id="loginPass" placeholder="Enter your password" required />
+    </div>
+    
+    <button type="submit">Log In</button>
+    
+    <div class="form-footer">
+      Don't have an account? <a href="#" onclick="switchToRegister()">Sign up</a>
+    </div>
+    
+    <div class="social-login">
+      <p>or continue with</p>
+      <div class="social-buttons">
+        <div class="social-btn google">
+          <i class="fab fa-google"></i>
+        </div>
+        <div class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="social-btn apple">
+          <i class="fab fa-apple"></i>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="registerDropdown" class="dropdown-form">
+  <form id="registerForm">
+    <h3>Create Account</h3>
+    
+    <div class="form-group">
+      <label for="regUser">Username</label>
+      <input type="text" id="regUser" placeholder="Choose a username" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="regEmail">Email</label>
+      <input type="email" id="regEmail" placeholder="Enter your email" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="regPass">Password</label>
+      <input type="password" id="regPass" placeholder="Create a password" required />
+    </div>
+    
+    <button type="submit">Sign Up</button>
+    
+    <div class="form-footer">
+      Already have an account? <a href="#" onclick="switchToLogin()">Log in</a>
+    </div>
+  </form>
+</div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="about">
+        <h3>About</h3>
+        <p>London 145<br>United Kingdom</p>
+        <p>Email: demo@gmail.com</p>
+        <p>Phone: +01 1234567890</p>
+      </div>
+      <div class="menus">
+        <h3>Menus</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h3>Newsletter</h3>
+        <form>
+          <input type="email" placeholder="Your Email" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2022 All Rights Reserved.</p>
+      <ul>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+  </script>
+
+
+  <script src="js/script.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const loader = document.getElementById("loader-wrapper");
+        loader.classList.add("hidden");
+        setTimeout(() => {
+          loader.style.display = "none";
+          document.getElementById("main-content").style.display = "block";
+        }, 500); 
+      }, 500);
+    });
+  </script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
