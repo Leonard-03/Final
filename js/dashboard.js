@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const isLoggedIn = localStorage.getItem("loggedIn");
   let pets = JSON.parse(localStorage.getItem(`pets_${currentUser}`)) || [];
   function saveToLocalStorage(key, data) {
-      try {
-          localStorage.setItem(key, JSON.stringify(data));
-      } catch (e) {
-          console.error("Failed to save to localStorage", e);
-      }
+    try {
+      localStorage.setItem(`pets_${currentUser}`, JSON.stringify(data));
+    } catch (e) {
+      console.error("Failed to save to localStorage", e);
+    }
   }
   
 
