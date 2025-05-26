@@ -282,7 +282,7 @@ body {
 
 
 .hero-banner {
-  background: url("/images/pug.png") no-repeat center center/cover;
+  background: url("../images/pug.png") no-repeat center center/cover;
   height: 80vh;
   position: relative;
   display: flex;
