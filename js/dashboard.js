@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const currentUser = localStorage.getItem("currentUser");
   const isLoggedIn = localStorage.getItem("loggedIn");
+  let pets = JSON.parse(localStorage.getItem(`pets_${currentUser}`)) || [];
   function saveToLocalStorage(key, data) {
       try {
           localStorage.setItem(key, JSON.stringify(data));
@@ -133,10 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const petList = document.getElementById("petList");
   const petSwitcher = document.getElementById("petSwitcher");
   function initializePetSwitcher() {
-  const petSwitcher = document.getElementById("petSwitcher");
-  if (!petSwitcher) return;
+    const petSwitcher = document.getElementById("petSwitcher");
+    if (!petSwitcher) return;
 
-  petSwitcher.innerHTML = "";
+    // Reload pets from localStorage
+    pets = JSON.parse(localStorage.getItem(`pets_${currentUser}`)) || [];
+    
+    petSwitcher.innerHTML = "";
 
   if (pets.length === 0) {
     const defaultOption = document.createElement("option");
@@ -205,15 +209,18 @@ document.addEventListener("DOMContentLoaded", () => {
     activePetWeight.textContent = pet.weight || "N/A";
   }
   function renderPets() {
-      if (!petList) return;
-      
-      petList.innerHTML = "";
-      
-      if (pets.length === 0) {
-          petList.innerHTML = "<p>No pets added yet.</p>";
-          updateSidebarProfile(); 
-          return;
-      }
+    if (!petList) return;
+    
+    // Reload pets from localStorage to ensure we have latest data
+    pets = JSON.parse(localStorage.getItem(`pets_${currentUser}`)) || [];
+    
+    petList.innerHTML = "";
+    
+    if (pets.length === 0) {
+      petList.innerHTML = "<p>No pets added yet.</p>";
+      updateSidebarProfile(); 
+      return;
+    }
 
       pets.forEach((pet, index) => {
           const petCard = document.createElement("div");
@@ -763,7 +770,7 @@ if (addPetBtn) {
     }
   });
 }
-  let pets = JSON.parse(localStorage.getItem(`pets_${currentUser}`)) || [];
+  pets = JSON.parse(localStorage.getItem(`pets_${currentUser}`)) || [];
   initializePetSwitcher();
   updateSidebarProfile();
   renderDashboardOverview();
