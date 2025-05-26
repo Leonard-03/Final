@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - FurCare</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <div class="topbar-logo">
+        <img src="images/5.png" alt="FurHerd Logo">
+      </div>
+
+      <div class="user-links">
+      <a href="#" onclick="toggleLogin()">Log In</a>
+      <a href="#" onclick="toggleRegister()">Register</a>
+    </div>
+
+      
+    </div>
+
+    <div class="main-header">
+      <div class="logo"><a href="index.html">Fur<span>Care</span></a></div>
+      <div class="menu-toggle"><button onclick="openNav()">☰</button></div>
+    </div>
+  </header>
+
+  <nav id="sidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="why-choose-us">
+      <div class="container">
+        <h2>Why Choose Us</h2>
+        <div class="choices">
+          <div class="choice">
+            <div class="number-circle">01</div>
+            <div class="choice-content">
+              <h3>Best Care at the Best Price</h3>
+              <p>We provide top-quality veterinary services that are affordable and accessible for every pet owner. Your pet’s health shouldn't break the bank.</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+
+          <div class="choice">
+            <div class="number-circle">02</div>
+            <div class="choice-content">
+              <h3>Experienced & Compassionate Team</h3>
+              <p>Our team of skilled veterinarians and caring staff treat every pet like family. Trust us to give your furry friend the attention they deserve.</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+
+          <div class="choice">
+            <div class="number-circle">03</div>
+            <div class="choice-content">
+              <h3>24/7 Support & Emergency Help</h3>
+              <p>Got questions or an urgent concern? We're here for you any time — because pet health doesn't wait.</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+
+          <div class="choice">
+            <div class="number-circle">04</div>
+            <div class="choice-content">
+              <h3>Full Range of Services</h3>
+              <p>From routine checkups to advanced diagnostics and surgery, we offer complete care under one roof.</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<div id="loginDropdown" class="dropdown-form">
+  <form id="loginForm">
+    <h3>Welcome Back</h3>
+    
+    <div class="form-group">
+      <label for="loginUser">Username or Email</label>
+      <input type="text" id="loginUser" placeholder="Enter your username or email" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="loginPass">Password</label>
+      <input type="password" id="loginPass" placeholder="Enter your password" required />
+    </div>
+    
+    <button type="submit">Log In</button>
+    
+    <div class="form-footer">
+      Don't have an account? <a href="#" onclick="switchToRegister()">Sign up</a>
+    </div>
+    
+    <div class="social-login">
+      <p>or continue with</p>
+      <div class="social-buttons">
+        <div class="social-btn google">
+          <i class="fab fa-google"></i>
+        </div>
+        <div class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="social-btn apple">
+          <i class="fab fa-apple"></i>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="registerDropdown" class="dropdown-form">
+  <form id="registerForm">
+    <h3>Create Account</h3>
+    
+    <div class="form-group">
+      <label for="regUser">Username</label>
+      <input type="text" id="regUser" placeholder="Choose a username" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="regEmail">Email</label>
+      <input type="email" id="regEmail" placeholder="Enter your email" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="regPass">Password</label>
+      <input type="password" id="regPass" placeholder="Create a password" required />
+    </div>
+    
+    <button type="submit">Sign Up</button>
+    
+    <div class="form-footer">
+      Already have an account? <a href="#" onclick="switchToLogin()">Log in</a>
+    </div>
+  </form>
+</div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="about">
+        <h3>About</h3>
+        <p>London 145<br>United Kingdom</p>
+        <p>Email: demo@gmail.com</p>
+        <p>Phone: +01 1234567890</p>
+      </div>
+      <div class="menus">
+        <h3>Menus</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h3>Newsletter</h3>
+        <form>
+          <input type="email" placeholder="Your Email" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2022 All Rights Reserved.</p>
+      <ul>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

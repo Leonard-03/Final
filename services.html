@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FurCare Services</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="topbar-logo center-logo">
+        <img src="images/5.png" alt="FurHerd Logo" />
+      </div>
+      <div class="user-links">
+        <a href="#" onclick="toggleLogin()">Log In</a>
+        <a href="#" onclick="toggleRegister()">Register</a>
+      </div>
+    </div>
+
+    <div class="main-header">
+      <div class="logo"><a href="index.html">Fur<span>Care</span></a></div>
+      <div class="menu-toggle"><button onclick="openNav()">&#9776;</button></div>
+    </div>
+  </header>
+  <nav id="sidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="services">
+      <div class="container">
+        <div class="titlepage text_align_center">
+          <h2>Services we offer</h2>
+          <p>We provide a comprehensive range of services to ensure your pet’s health and happiness.</p>
+        </div>
+        <div class="row">
+          <div class="service_text">
+            <i><img src="images/Service_icon1.png.png" alt="Pet Profile Management" /></i>
+            <h3>Pet Profile Management</h3>
+            <p>Create and manage detailed profiles for each pet, including breed, age, and medical history.</p>
+            <a href="services.html">Read More</a>
+          </div>
+          <div class="service_text">
+            <i><img src="images/service_icon2.png.png" alt="Log Medical Records" /></i>
+            <h3>Log Medical Records</h3>
+            <p>Track vet visits, vaccinations, diagnoses, and treatments all in one place.</p>
+            <a href="services.html">Read More</a>
+          </div>
+          <div class="service_text">
+            <i><img src="images/service_icon3.png.png" alt="Schedule Appointment" /></i>
+            <h3>Appointment Booking</h3>
+            <p>Book appointments easily and get timely reminders without hassle.</p>
+            <a href="services.html">Read More</a>
+          </div>
+          <div class="service_text">
+            <i><img src="images/service_icon4.png.png" alt="Health Tracking" /></i>
+            <h3>Health Tracking</h3>
+            <p>Track your pet’s weight, symptoms, and health to detect issues early.</p>
+            <a href="services.html">Read More</a>
+          </div>
+          <div class="service_text">
+            <i><img src="images/service_icon5.png.png" alt="Set Reminders" /></i>
+            <h3>Reminders</h3>
+            <p>Receive alerts for medications, deworming, and vaccination dates.</p>
+            <a href="services.html">Read More</a>
+          </div>
+          <div class="service_text">
+            <i><img src="images/service_icon6.png.png" alt="Pet Store" /></i>
+            <h3>Pet Store</h3>
+            <p>Shop vet-approved food, toys, and products tailored to your pet.</p>
+            <a href="services.html">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<div id="modalOverlay" class="modal-overlay"></div>
+
+<div id="loginDropdown" class="dropdown-form">
+  <form id="loginForm">
+    <h3>Welcome Back</h3>
+    
+    <div class="form-group">
+      <label for="loginUser">Username or Email</label>
+      <input type="text" id="loginUser" placeholder="Enter your username or email" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="loginPass">Password</label>
+      <input type="password" id="loginPass" placeholder="Enter your password" required />
+    </div>
+    
+    <button type="submit">Log In</button>
+    
+    <div class="form-footer">
+      Don't have an account? <a href="#" onclick="switchToRegister()">Sign up</a>
+    </div>
+    
+    <div class="social-login">
+      <p>or continue with</p>
+      <div class="social-buttons">
+        <div class="social-btn google">
+          <i class="fab fa-google"></i>
+        </div>
+        <div class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="social-btn apple">
+          <i class="fab fa-apple"></i>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="registerDropdown" class="dropdown-form">
+  <form id="registerForm">
+    <h3>Create Account</h3>
+    
+    <div class="form-group">
+      <label for="regUser">Username</label>
+      <input type="text" id="regUser" placeholder="Choose a username" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="regEmail">Email</label>
+      <input type="email" id="regEmail" placeholder="Enter your email" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="regPass">Password</label>
+      <input type="password" id="regPass" placeholder="Create a password" required />
+    </div>
+    
+    <button type="submit">Sign Up</button>
+    
+    <div class="form-footer">
+      Already have an account? <a href="#" onclick="switchToLogin()">Log in</a>
+    </div>
+  </form>
+</div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="about">
+        <h3>About</h3>
+        <p>London 145<br>United Kingdom</p>
+        <p>Email: demo@gmail.com</p>
+        <p>Phone: +01 1234567890</p>
+      </div>
+      <div class="menus">
+        <h3>Menus</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h3>Newsletter</h3>
+        <form>
+          <input type="email" placeholder="Your Email" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2022 All Rights Reserved.</p>
+      <ul>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/index.js"></script>
+
+</body>
+</html>

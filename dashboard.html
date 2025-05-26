@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FurCare Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">Fur<span>Care</span></div>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard-layout">
+    <aside class="sidebar-left">
+      <ul>
+        <li><a href="#" data-section="dashboard" class="active">Dashboard</a></li>
+        <li><a href="#" data-section="pet-profile">Pet Profile</a></li>
+        <li><a href="#" data-section="appointments">Appointments</a></li>
+        <li><a href="#" data-section="medical-records">Medical Records</a></li>
+        <li><a href="#" data-section="reminders">Reminders</a></li>
+        <li><a href="#" data-section="store">Store</a></li>
+        <li><a href="#" data-section="community">Community</a></li>
+      </ul>
+    </aside>
+
+    <section class="dashboard-content">
+      <section id="dashboard" class="dashboard-section">
+        <h2>Welcome Back!</h2>
+        <p class="subtext">Here's a quick overview of your pet care activity.</p>
+
+        <div class="dashboard-widgets">
+          <div class="widget">
+            <h3>👤 Pet Profiles</h3>
+            <p id="petCount">You have 0 pets added</p>
+          </div>
+          <div class="widget">
+            <h3>📅 Appointments</h3>
+            <p id="apptCount">No appointments booked yet</p>
+          </div>
+          <div class="widget">
+            <h3>📁 Medical Records</h3>
+            <p id="recordCount">0 personal records uploaded</p>
+          </div>
+          <div class="widget">
+            <h3>⏰ Reminders</h3>
+            <p id="reminderCount">0 reminders set</p>
+          </div>
+        </div>
+
+        <div class="dashboard-message">
+          <h4>🐾 Tip of the Day</h4>
+          <p id="dailyTip">Loading tip...</p>
+        </div>
+      </section>
+
+
+      <section id="pet-profile" class="dashboard-section" style="display:none;">
+        <h2>Pet Profile</h2>
+        <form id="petForm" class="pet-form">
+          <label>Pet Photo:
+            <input type="file" id="petPhoto" accept="image/*" />
+          </label>
+          <label>Name:
+            <input type="text" id="petName" required />
+          </label>
+          <label>Breed:
+            <input type="text" id="petBreed" required />
+          </label>
+          <label>
+            Weight (Optional):
+            <input type="text" id="petWeight" placeholder="e.g., 25kg" />
+          </label>
+          <label>Attitudes (Optional):
+            <textarea id="petAttitudes" rows="3"></textarea>
+          </label>
+          <button type="submit">Add Pet</button>
+        </form>
+        <div id="petList" class="pet-list"></div>
+      </section>
+
+      <section id="appointments" class="dashboard-section" style="display:none;">
+        <h2>Appointments</h2>
+
+        <div class="consultation-type">
+          <label><input type="radio" name="consultType" value="online" checked /> Online Consultation</label>
+          <label><input type="radio" name="consultType" value="onsite" /> On-site Consultation</label>
+        </div>
+
+        <form id="onlineForm" class="appointment-form">
+          <label for="symptoms">Describe symptoms:</label>
+          <textarea id="symptoms" rows="4" placeholder="Describe your pet's symptoms..." required></textarea>
+          <button type="submit">Find Available Doctors</button>
+        </form>
+
+        <div id="doctorList" style="display:none;">
+          <h3>Available Doctors</h3>
+          <ul id="doctors"></ul>
+          <form id="onlineBookingForm" style="display:none;">
+            <label for="doctorDate">Choose Date:</label>
+            <input type="date" id="doctorDate" required />
+            <label for="doctorTime">Choose Time:</label>
+            <input type="time" id="doctorTime" required />
+            <button type="submit">Book Online Appointment</button>
+          </form>
+        </div>
+
+        <div id="clinicSelection" style="display:none;">
+          <h3>Select a Clinic</h3>
+          <ul id="clinicList"></ul>
+
+          <form id="onsiteForm" style="display:none;">
+            <label for="clinicDate">Choose Date:</label>
+            <input type="date" id="clinicDate" required />
+            <label for="clinicTime">Choose Time:</label>
+            <input type="time" id="clinicTime" required />
+            <button type="submit">Book Appointment</button>
+          </form>
+        </div>
+
+        <div id="confirmation" style="display:none;" class="confirmation-message">
+          <p>✅ Appointment booked successfully!</p>
+        </div>
+
+        <div id="appointmentList">
+          <h3>Your Appointments</h3>
+          <ul></ul>
+        </div>
+      </section>
+
+
+      <section id="medical-records" class="dashboard-section" style="display:none;">
+          <h2>Medical Records</h2>
+
+          <div class="record-tabs">
+            <button id="personalTab" class="active">Your Uploads</button>
+            <button id="doctorTab">From Doctors</button>
+          </div>
+
+          <div id="personalRecords" class="record-panel">
+            <form id="personalRecordForm" class="record-form">
+              <label>Title:
+                <input type="text" id="recordTitle" required />
+              </label>
+              <label>Date:
+                <input type="date" id="recordDate" required />
+              </label>
+              <label>File:
+                <input type="file" id="recordFile" accept="image/*,.pdf" required />
+              </label>
+              <button type="submit">Upload Record</button>
+            </form>
+            <div id="personalRecordList" class="record-list"></div>
+          </div>
+
+          <div id="doctorRecords" class="record-panel" style="display:none;">
+            <div id="doctorRecordList" class="record-list"></div>
+          </div>
+        </section>
+
+
+      <section id="reminders" class="dashboard-section" style="display:none;">
+          <h2>Reminders</h2>
+
+          <form id="reminderForm" class="reminder-form">
+            <label>
+              Title:
+              <input type="text" id="reminderTitle" required />
+            </label>
+            <label>
+              Description:
+              <textarea id="reminderDescription" rows="2"></textarea>
+            </label>
+            <label>
+              Date:
+              <input type="date" id="reminderDate" required />
+            </label>
+            <label>
+              Time:
+              <input type="time" id="reminderTime" required />
+            </label>
+            <button type="submit">Add Reminder</button>
+          </form>
+
+          <div id="reminderList" class="reminder-list">
+          </div>
+        </section>
+
+
+      <section id="store" class="dashboard-section" style="display: none;">
+        <h2>Pet Store</h2>
+        <div class="store-grid">
+          <div class="store-card">
+            <img src="images/pdfood.jpg" alt="Premium Dog Food">
+            <h3>Premium Dog Food</h3>
+            <p>High-quality nutrition for your canine companion.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/cscc.jpg" alt="Cat Scratching Post">
+            <h3>Cat Scratching Post</h3>
+            <p>Durable and fun scratching post for cats.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/pit.jpg" alt="Interactive Pet Toy">
+            <h3>Interactive Pet Toy</h3>
+            <p>Keep your pet engaged and active.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/pgt.jpg" alt="Pet Grooming Kit">
+            <h3>Pet Grooming Kit</h3>
+            <p>All-in-one grooming essentials for your pet.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/cpb.jpg" alt="Comfortable Pet Bed">
+            <h3>Comfortable Pet Bed</h3>
+            <p>Soft and cozy bed for restful sleep.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/pcb.jpg" alt="Pet Carrier Bag">
+            <h3>Pet Carrier Bag</h3>
+            <p>Convenient and safe travel for your pet.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/pfb.webp" alt="Pet Feeding Bowl">
+            <h3>Pet Feeding Bowl</h3>
+            <p>Durable and easy-to-clean feeding bowl.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/plcs.avif" alt="Pet Leash and Collar Set">
+            <h3>Pet Leash and Collar Set</h3>
+            <p>Stylish and strong leash and collar combo.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="store-card">
+            <img src="images/pt.jpg" alt="Pet Treats Variety Pack">
+            <h3>Pet Treats Variety Pack</h3>
+            <p>Assorted treats to delight your pet.</p>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="community" class="dashboard-section" style="display:none;">
+        <h2>Community</h2>
+        <div id="communityFeed" class="community-feed"></div>
+      </section>
+
+    </section>
+
+    <aside class="sidebar-right">
+      <div class="pet-profile">
+        <div class="profile-pic-container">
+          <img id="activePetPic" src="images/default-pet.png" alt="Pet" />
+        </div>
+        <select id="petSwitcher" class="pet-switcher"></select>
+
+        <h3 id="activePetName">N/A</h3>
+        <p>Breed: <span id="activePetBreed">N/A</span></p>
+        <p>Weight: <span id="activePetWeight">N/A</span></p>
+      </div>
+
+      <div class="next-appointment">
+        <h4>Next Appointment</h4>
+        <p id="nextAppointmentInfo">No upcoming appointments.</p>
+      </div>
+
+      <button id="addPetBtn" class="sidebar-btn">Add New Pet</button>
+
+      <div class="support-section">
+        <button id="toggleSupportBtn" class="sidebar-btn">Customer Support</button>
+
+        <div id="supportFormContainer" class="support-form hidden">
+          <textarea id="supportMessage" placeholder="Type your concern here..." required></textarea>
+          <input type="email" id="supportEmail" placeholder="Your email address" required />
+          <button id="sendSupportBtn" class="send-btn">Send</button>
+        </div>
+
+        <div id="supportSuccessMessage" class="success-message hidden">
+          <p>✅ Your message was sent. Expect a reply within 24 hours.</p>
+          <button id="dismissSupportMsg">OK</button>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer>© 2025 FurCare. All rights reserved.</footer>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
